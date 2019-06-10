@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.       *
  ******************************************************************************/
 
-#include "PurePursuitControllerNode.h"
+#include "pure_pursuit_controller/PurePursuitControllerNode.h"
 
 #include <cmath>
 

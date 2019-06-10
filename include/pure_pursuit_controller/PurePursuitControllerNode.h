@@ -148,7 +148,7 @@ namespace starleth {
     /// Epsilon
     double _epsilon;
     /// Transform listener for robot's pose w.r.t. map
-    tf::TransformListener tfListener_;
+    tf::TransformListener _tfListener;
     /// Timer
     ros::Timer _timer;
     /** @}

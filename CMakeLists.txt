@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(pure_pursuit_controller)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -107,9 +107,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES pure_pursuit_controller
-#  CATKIN_DEPENDS geometry_msgs nav_msgs rosbash roscpp rospy tf visualization_msgs
+   INCLUDE_DIRS include
+   LIBRARIES ${PROJECT_NAME}
+   CATKIN_DEPENDS geometry_msgs nav_msgs rosbash roscpp rospy tf visualization_msgs
 #  DEPENDS system_lib
 )
 
@@ -120,15 +120,18 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/pure_pursuit_controller.cpp
-# )
-
+add_library(${PROJECT_NAME}
+  src/PurePursuitControllerNode.cpp
+)
+add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(${PROJECT_NAME}
+  ${catkin_LIBRARIES}
+)
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
