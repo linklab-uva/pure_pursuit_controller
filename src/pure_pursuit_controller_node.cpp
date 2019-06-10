@@ -22,7 +22,7 @@
 
 #include <ros/ros.h>
 
-#include "PurePursuitControllerNode.h"
+#include "pure_pursuit_controller/PurePursuitControllerNode.h"
 
 int main(int argc, char** argv) {
   ros::init(argc, argv, "pure_pursuit_controller");
